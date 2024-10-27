@@ -1,6 +1,5 @@
-
-
 import random
+
 class BankAccount:
     def __init__(self, full_name, account_number=None, balance=0):
         self.full_name = full_name
@@ -10,6 +9,7 @@ class BankAccount:
         else:
             self.account_number = account_number
         self.balance = balance
+    
     # function that returns account number
     def generate_account_number(self):
         # Generate a random 8-digit number
@@ -23,7 +23,7 @@ class BankAccount:
 
     def withdraw(self, withdrawal_amount):
         if self.balance < withdrawal_amount:
-            print((f"Insufficient funds. $10 overdrafte fee assessed. \n"
+            print((f"Insufficient funds. $10 overdraft fee assessed. \n"
                    f"New balance: {self.balance - 10}"))
     # reassign balance to reflect 10 overdraft
             self.balance = self.balance - 10
@@ -51,9 +51,11 @@ class BankAccount:
          f" Balance: {self.balance} "))
 # need to format balance when it prints and maybe set as float?
 
-# Then define the following methods for the BankAccount class:
+    def add_interest(self):
+        interest = self.balance *  0.00083
+        self.balance = self.balance + interest
+        return self.balance
 
-#     The add_interest method adds interest to the users balance. The annual interest rate is 1% (i.e. 0.083% per month). Thus, the monthly interest is calculated by the following equation: interest = balance *  0.00083 .
 
 
 
@@ -73,5 +75,9 @@ class BankAccount:
 
 mitchell = BankAccount("Mitchell", "03141592")
 mitchell.deposit(400000)
+mitchell.print_statement()
+mitchell.add_interest()
+mitchell.print_statement()
+mitchell.withdraw(150)
 mitchell.print_statement()
 
