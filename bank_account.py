@@ -8,7 +8,7 @@ class BankAccount:
             self.account_number = self.generate_account_number()
         else:
             self.account_number = account_number
-        self.balance = balance
+        self.balance = float(balance)
     
     # function that returns account number
     def generate_account_number(self):
@@ -48,11 +48,11 @@ class BankAccount:
 
         print((f"{self.full_name} \n"
          f"Account Number.: {masked_account} \n"
-         f" Balance: {self.balance} "))
+         f"Balance: ${self.balance} "))
 # need to format balance when it prints and maybe set as float?
 
     def add_interest(self):
-        interest = self.balance *  0.00083
+        interest = round((self.balance *  0.00083), 2)
         self.balance = self.balance + interest
         return self.balance
 
@@ -80,4 +80,17 @@ mitchell.add_interest()
 mitchell.print_statement()
 mitchell.withdraw(150)
 mitchell.print_statement()
+
+faith = BankAccount("Faith K")
+faith.deposit(100000)
+faith.get_balance()
+faith.withdraw(150000)
+faith.add_interest()
+faith.print_statement()
+
+pono = BankAccount("Pono K")
+pono.deposit(300000)
+pono.get_balance()
+pono.withdraw(200)
+pono.print_statement()
 
