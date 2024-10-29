@@ -36,10 +36,6 @@ class BankAccount:
     def get_balance(self):
         print(f"Your current balance is: {self.balance}")
 
-#     The print_statement method prints a message with the account name, account number, and balance like this:
-# Joi Anderson
-# Account No.: ****5678
-# Balance: $100.00
     def print_statement(self):
         # Convert account number to string and format with asterisks
         account_str = str(self.account_number)
@@ -56,12 +52,6 @@ class BankAccount:
         self.balance = self.balance + interest
         return self.balance
 
-
-
-
-# Outside of the BankAccount class, define 3 different bank account examples using the BankAccount() object.
-
-#     Your examples should show you using the different methods above to demonstrate them working.
 
 # Include example code to do the following:
 
