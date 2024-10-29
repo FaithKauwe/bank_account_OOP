@@ -3,7 +3,7 @@ import random
 class BankAccount:
     def __init__(self, full_name, account_number=None, balance=0):
         self.full_name = full_name
-    # set account number to random 8 digit number    
+    # set account number to random 8 digit number, unless already provided   
         if account_number is None:
             self.account_number = self.generate_account_number()
         else:
@@ -49,7 +49,7 @@ class BankAccount:
         print((f"{self.full_name} \n"
          f"Account Number.: {masked_account} \n"
          f"Balance: ${self.balance} "))
-# need to format balance when it prints and maybe set as float?
+
 
     def add_interest(self):
         interest = round((self.balance *  0.00083), 2)
